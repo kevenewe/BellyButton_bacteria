@@ -98,6 +98,7 @@ function buildCharts(sample) {
       y: yticks,
       type: "bar",
       orientation: "h",
+      
       text: labels 
     }];
 
@@ -107,6 +108,7 @@ function buildCharts(sample) {
         text: "<b>Top 10 Bacteria Cultures Found</b>",
         y: 0.90
       },
+    
       margin: {
         l: 100,
         r: 35,
@@ -156,11 +158,12 @@ function buildCharts(sample) {
     //Deliverable 3: 4. Create the trace for the gauge chart.
     var gaugeData = {
       type: "indicator",
-      value: "wfreq",
+      value: wfreqs,
       mode: "gauge+number",
       gauge: {
         axis: {range: [0,10], dtick: 2},
         bar: {color: "black"},
+        
         steps: [
           {range: [0,2], color: "red"},
           {range: [2,4], color: "orange"},
@@ -168,6 +171,7 @@ function buildCharts(sample) {
           {range: [6,8], color: "yellowgreen"},
           {range: [8,10], color: "green"}
         ],
+        'threshold': {'line': {'color': "red", 'width': 4}, 'thickness' : 0.75, 'value': 5}
       }
     }; 
     // Deliverable 3: 5. Create the layout for the gauge chart.
@@ -183,6 +187,7 @@ function buildCharts(sample) {
         t: 50,
         pad: 50
       },
+      
     };
     // Deliverable 3: 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("gauge", [gaugeData], gaugeLayout);
